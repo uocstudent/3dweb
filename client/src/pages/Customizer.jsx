@@ -54,19 +54,19 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('https://threedweb-48g1.onrender.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt }),
-      });
+      const response = await fetch('https://backend3dweb.onrender.com/api/v1/dalle', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ prompt }),
+});
 
-      const data = await response.json();
-      
-      if (!data.photo) {
-        throw new Error('No se pudo generar la imagen');
-      }
+const data = await response.json();
+
+if (!data.photo) {
+  throw new Error('No se pudo generar la imagen');
+}
 
       // Asegurarnos de que la imagen base64 tenga el formato correcto
       const imageData = `data:image/png;base64,${data.photo}`;
