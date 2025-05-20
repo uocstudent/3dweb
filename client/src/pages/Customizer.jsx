@@ -54,7 +54,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('https://backend3dweb.onrender.com', {
+      const response = await fetch('https://threedweb-48g1.onrender.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
